@@ -1,0 +1,218 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "naming_series:",
+ "creation": "2024-01-01 00:00:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "test_name",
+  "status",
+  "test_setup_section",
+  "base_job_opening",
+  "test_variable",
+  "column_break_1",
+  "start_date",
+  "end_date", 
+  "traffic_split",
+  "variants_section",
+  "variant_a_title",
+  "variant_a_description",
+  "variant_b_title", 
+  "variant_b_description",
+  "results_section",
+  "variant_a_applications",
+  "variant_a_conversion",
+  "variant_b_applications",
+  "variant_b_conversion",
+  "column_break_2",
+  "winner",
+  "confidence_level",
+  "statistical_significance",
+  "test_conclusion"
+ ],
+ "fields": [
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Series",
+   "options": "ABT-.YYYY.-.#####",
+   "reqd": 1
+  },
+  {
+   "fieldname": "test_name",
+   "fieldtype": "Data",
+   "label": "Test Name",
+   "reqd": 1
+  },
+  {
+   "default": "Planning",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "Planning\nActive\nCompleted\nCancelled",
+   "reqd": 1
+  },
+  {
+   "fieldname": "test_setup_section",
+   "fieldtype": "Section Break",
+   "label": "Test Setup"
+  },
+  {
+   "fieldname": "base_job_opening",
+   "fieldtype": "Link",
+   "label": "Base Job Opening",
+   "options": "Job Opening",
+   "reqd": 1
+  },
+  {
+   "fieldname": "test_variable",
+   "fieldtype": "Select",
+   "label": "Test Variable", 
+   "options": "Job Title\nJob Description\nSalary Range\nRequirements\nCompany Benefits",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "start_date",
+   "fieldtype": "Date",
+   "label": "Start Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "end_date",
+   "fieldtype": "Date",
+   "label": "End Date",
+   "reqd": 1
+  },
+  {
+   "default": "50",
+   "fieldname": "traffic_split",
+   "fieldtype": "Int",
+   "label": "Traffic Split % (Variant A)",
+   "reqd": 1
+  },
+  {
+   "fieldname": "variants_section",
+   "fieldtype": "Section Break",
+   "label": "Test Variants"
+  },
+  {
+   "fieldname": "variant_a_title",
+   "fieldtype": "Data",
+   "label": "Variant A - Job Title"
+  },
+  {
+   "fieldname": "variant_a_description",
+   "fieldtype": "Long Text",
+   "label": "Variant A - Description"
+  },
+  {
+   "fieldname": "variant_b_title", 
+   "fieldtype": "Data",
+   "label": "Variant B - Job Title"
+  },
+  {
+   "fieldname": "variant_b_description",
+   "fieldtype": "Long Text",
+   "label": "Variant B - Description"
+  },
+  {
+   "depends_on": "eval:doc.status=='Completed'",
+   "fieldname": "results_section",
+   "fieldtype": "Section Break",
+   "label": "Test Results"
+  },
+  {
+   "fieldname": "variant_a_applications",
+   "fieldtype": "Int",
+   "label": "Variant A Applications",
+   "read_only": 1
+  },
+  {
+   "fieldname": "variant_a_conversion",
+   "fieldtype": "Percent",
+   "label": "Variant A Conversion Rate",
+   "read_only": 1
+  },
+  {
+   "fieldname": "variant_b_applications",
+   "fieldtype": "Int", 
+   "label": "Variant B Applications",
+   "read_only": 1
+  },
+  {
+   "fieldname": "variant_b_conversion",
+   "fieldtype": "Percent",
+   "label": "Variant B Conversion Rate", 
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "winner",
+   "fieldtype": "Select",
+   "label": "Winning Variant",
+   "options": "\nVariant A\nVariant B\nNo Significant Difference",
+   "read_only": 1
+  },
+  {
+   "fieldname": "confidence_level",
+   "fieldtype": "Percent",
+   "label": "Confidence Level",
+   "read_only": 1
+  },
+  {
+   "fieldname": "statistical_significance",
+   "fieldtype": "Check",
+   "label": "Statistically Significant",
+   "read_only": 1
+  },
+  {
+   "fieldname": "test_conclusion",
+   "fieldtype": "Long Text",
+   "label": "Test Conclusion & Recommendations",
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-01-01 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Indeed",
+ "name": "AB Test Campaign",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "HR Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}

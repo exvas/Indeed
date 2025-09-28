@@ -1,0 +1,165 @@
+{
+ "creation": "2024-01-01 00:00:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "chart_type",
+  "filters_section",
+  "from_date",
+  "to_date",
+  "company_filter",
+  "status_filter",
+  "dashboard_section",
+  "sync_status_html",
+  "metrics_section",
+  "total_jobs",
+  "successful_posts",
+  "failed_posts",
+  "success_rate",
+  "column_break_1",
+  "pending_jobs",
+  "active_jobs",
+  "avg_response_time",
+  "last_sync_time"
+ ],
+ "fields": [
+  {
+   "fieldname": "chart_type",
+   "fieldtype": "Select",
+   "label": "Chart Type",
+   "options": "Summary\nTrend Analysis\nStatus Distribution\nPerformance Metrics",
+   "default": "Summary"
+  },
+  {
+   "fieldname": "filters_section",
+   "fieldtype": "Section Break",
+   "label": "Filters"
+  },
+  {
+   "fieldname": "from_date",
+   "fieldtype": "Date",
+   "label": "From Date",
+   "default": "Today"
+  },
+  {
+   "fieldname": "to_date",
+   "fieldtype": "Date", 
+   "label": "To Date",
+   "default": "Today"
+  },
+  {
+   "fieldname": "company_filter",
+   "fieldtype": "Link",
+   "label": "Company",
+   "options": "Company"
+  },
+  {
+   "fieldname": "status_filter",
+   "fieldtype": "Select",
+   "label": "Status Filter",
+   "options": "\nPosted\nFailed\nPending\nActive\nExpired"
+  },
+  {
+   "fieldname": "dashboard_section",
+   "fieldtype": "Section Break",
+   "label": "Indeed Integration Dashboard"
+  },
+  {
+   "fieldname": "sync_status_html",
+   "fieldtype": "HTML",
+   "label": "Sync Status Dashboard"
+  },
+  {
+   "fieldname": "metrics_section",
+   "fieldtype": "Section Break",
+   "label": "Key Metrics",
+   "columns": 2
+  },
+  {
+   "fieldname": "total_jobs",
+   "fieldtype": "Int",
+   "label": "Total Jobs",
+   "read_only": 1
+  },
+  {
+   "fieldname": "successful_posts",
+   "fieldtype": "Int",
+   "label": "Successful Posts",
+   "read_only": 1
+  },
+  {
+   "fieldname": "failed_posts",
+   "fieldtype": "Int",
+   "label": "Failed Posts",
+   "read_only": 1
+  },
+  {
+   "fieldname": "success_rate",
+   "fieldtype": "Percent",
+   "label": "Success Rate",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "pending_jobs",
+   "fieldtype": "Int",
+   "label": "Pending Jobs",
+   "read_only": 1
+  },
+  {
+   "fieldname": "active_jobs",
+   "fieldtype": "Int",
+   "label": "Active Jobs",
+   "read_only": 1
+  },
+  {
+   "fieldname": "avg_response_time",
+   "fieldtype": "Float",
+   "label": "Avg Processing Time (hrs)",
+   "read_only": 1
+  },
+  {
+   "fieldname": "last_sync_time",
+   "fieldtype": "Datetime",
+   "label": "Last Sync Time",
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "issingle": 1,
+ "links": [],
+ "modified": "2024-01-01 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Indeed",
+ "name": "Indeed Dashboard",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "HR Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}

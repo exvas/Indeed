@@ -3,12 +3,14 @@ name = "indeed"
 authors = [
     { name = "sammish", email = "sammish.thundiyil@gmail.com"}
 ]
-description = "Indeed: Job Search"
+description = "ERPNext Indeed Integration - Automated job posting and application management with advanced analytics"
 requires-python = ">=3.10"
 readme = "README.md"
 dynamic = ["version"]
 dependencies = [
     # "frappe~=15.0.0" # Installed and managed by bench.
+    # "erpnext>=15.0.0" # Required for core functionality  
+    # "hrms>=1.0.0" # Required for Job Opening and Job Applicant DocTypes
 ]
 
 [build-system]

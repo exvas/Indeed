@@ -1,0 +1,175 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-01-01 00:00:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "report_type",
+  "filters_section",
+  "from_date",
+  "to_date",
+  "company_filter",
+  "job_filter",
+  "source_filter",
+  "analytics_section",
+  "analytics_html",
+  "metrics_section",
+  "total_applications",
+  "indeed_applications", 
+  "conversion_rate",
+  "avg_time_to_apply",
+  "column_break_1",
+  "top_job_performance",
+  "source_breakdown",
+  "trend_analysis",
+  "recommendations"
+ ],
+ "fields": [
+  {
+   "fieldname": "report_type",
+   "fieldtype": "Select",
+   "label": "Report Type",
+   "options": "Overview\nSource Analysis\nJob Performance\nTrend Analysis\nConversion Funnel",
+   "default": "Overview",
+   "reqd": 1
+  },
+  {
+   "fieldname": "filters_section",
+   "fieldtype": "Section Break",
+   "label": "Report Filters"
+  },
+  {
+   "fieldname": "from_date",
+   "fieldtype": "Date",
+   "label": "From Date",
+   "default": "Today"
+  },
+  {
+   "fieldname": "to_date",
+   "fieldtype": "Date",
+   "label": "To Date", 
+   "default": "Today"
+  },
+  {
+   "fieldname": "company_filter",
+   "fieldtype": "Link",
+   "label": "Company",
+   "options": "Company"
+  },
+  {
+   "fieldname": "job_filter",
+   "fieldtype": "Link",
+   "label": "Specific Job",
+   "options": "Job Opening"
+  },
+  {
+   "fieldname": "source_filter",
+   "fieldtype": "Link",
+   "label": "Application Source",
+   "options": "Job Applicant Source"
+  },
+  {
+   "fieldname": "analytics_section",
+   "fieldtype": "Section Break",
+   "label": "Application Analytics Dashboard"
+  },
+  {
+   "fieldname": "analytics_html",
+   "fieldtype": "HTML",
+   "label": "Analytics Dashboard"
+  },
+  {
+   "fieldname": "metrics_section",
+   "fieldtype": "Section Break",
+   "label": "Key Metrics",
+   "columns": 2
+  },
+  {
+   "fieldname": "total_applications",
+   "fieldtype": "Int",
+   "label": "Total Applications",
+   "read_only": 1
+  },
+  {
+   "fieldname": "indeed_applications",
+   "fieldtype": "Int", 
+   "label": "Indeed Applications",
+   "read_only": 1
+  },
+  {
+   "fieldname": "conversion_rate",
+   "fieldtype": "Percent",
+   "label": "Indeed Conversion Rate",
+   "read_only": 1
+  },
+  {
+   "fieldname": "avg_time_to_apply",
+   "fieldtype": "Float",
+   "label": "Avg Days to Apply",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "top_job_performance",
+   "fieldtype": "Long Text",
+   "label": "Top Performing Jobs",
+   "read_only": 1
+  },
+  {
+   "fieldname": "source_breakdown",
+   "fieldtype": "Long Text", 
+   "label": "Source Breakdown",
+   "read_only": 1
+  },
+  {
+   "fieldname": "trend_analysis",
+   "fieldtype": "Long Text",
+   "label": "Trend Analysis",
+   "read_only": 1
+  },
+  {
+   "fieldname": "recommendations",
+   "fieldtype": "Long Text",
+   "label": "Recommendations",
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "issingle": 1,
+ "links": [],
+ "modified": "2024-01-01 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Indeed",
+ "name": "Application Analytics",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "HR Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}

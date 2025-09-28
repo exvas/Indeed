@@ -1,10 +1,10 @@
 app_name = "indeed"
 app_title = "Indeed"
 app_publisher = "sammish"
-app_description = "Indeed: Job Search"
+app_description = "Indeed: Job Search & Integration"
 app_email = "sammish.thundiyil@gmail.com"
 app_license = "mit"
-# required_apps = []
+required_apps = ["erpnext", "hrms"]
 
 # Includes in <head>
 # ------------------
@@ -189,6 +189,39 @@ app_license = "mit"
 # before_job = ["indeed.utils.before_job"]
 # after_job = ["indeed.utils.after_job"]
 
+# Document Events
+# ---------------
+doc_events = {
+	"Job Opening": {
+		"on_update": "indeed.indeed.utils.on_job_opening_save",
+		"after_insert": "indeed.indeed.utils.on_job_opening_save"
+	}
+}
+
+# Scheduled Tasks
+# ---------------
+scheduler_events = {
+	"cron": {
+		"0 */6 * * *": [  # Every 6 hours
+			"indeed.indeed.utils.regenerate_xml_feed"
+		]
+	}
+}
+
+# Website Route Rules
+# -------------------
+website_route_rules = [
+	{"from_route": "/api/method/indeed.indeed.utils.indeed_application_webhook", "to_route": "indeed.indeed.utils.indeed_application_webhook"}
+]
+
+# Boot Session
+# ------------
+boot_session = "indeed.boot.boot_session"
+
+# Installation
+# ------------
+after_install = "indeed.indeed.install.after_install.after_install"
+
 # User Data Protection
 # --------------------
 
@@ -220,10 +253,43 @@ app_license = "mit"
 # 	"indeed.auth.validate"
 # ]
 
+# Installation Hooks
+# ------------------
+before_app_install = "indeed.indeed.install.before_install"
+after_app_install = "indeed.indeed.install.after_install"
+
+fixtures = [
+    {
+        "doctype": "Custom Field",
+        "filters": [
+            [
+                "name",
+                "in",
+                [
+                    "Job Applicant-custom_indeed_profile_url",
+                    "Job Applicant-custom_indeed_application_id",
+                    "Job Opening-custom_post_to_indeed",
+                    "Job Opening-custom_indeed_job_id",
+                ]
+            ]
+        ]
+    }
+]
 # Automatically update python controller files with type annotations for this app.
 # export_python_type_annotations = True
 
 # default_log_clearing_doctypes = {
 # 	"Logging DocType Name": 30  # days to retain logs
 # }
+
+# Scheduled Events
+# ----------------
+scheduler_events = {
+	"daily": [
+		"indeed.indeed.monitoring.monitor_indeed_integration"
+	],
+	"hourly": [
+		"indeed.indeed.utils.regenerate_xml_feed"
+	]
+}
 

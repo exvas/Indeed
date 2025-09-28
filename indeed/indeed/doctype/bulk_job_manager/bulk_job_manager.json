@@ -1,0 +1,169 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-01-01 00:00:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "operation_type",
+  "selection_section",
+  "company_filter",
+  "department_filter", 
+  "job_status_filter",
+  "date_range_section",
+  "from_date",
+  "to_date",
+  "column_break_1",
+  "select_all",
+  "selected_jobs_html",
+  "operations_section",
+  "bulk_action",
+  "new_status",
+  "indeed_action",
+  "column_break_2",
+  "execute_button",
+  "results_section",
+  "operation_results"
+ ],
+ "fields": [
+  {
+   "fieldname": "operation_type",
+   "fieldtype": "Select",
+   "label": "Operation Type",
+   "options": "Job Selection\nBulk Actions\nResults Review",
+   "default": "Job Selection",
+   "reqd": 1
+  },
+  {
+   "fieldname": "selection_section",
+   "fieldtype": "Section Break",
+   "label": "Job Selection Criteria"
+  },
+  {
+   "fieldname": "company_filter",
+   "fieldtype": "Link",
+   "label": "Company",
+   "options": "Company"
+  },
+  {
+   "fieldname": "department_filter",
+   "fieldtype": "Link",
+   "label": "Department",
+   "options": "Department"
+  },
+  {
+   "fieldname": "job_status_filter",
+   "fieldtype": "Select",
+   "label": "Job Status",
+   "options": "\nOpen\nClosed\nOn Hold"
+  },
+  {
+   "fieldname": "date_range_section",
+   "fieldtype": "Section Break",
+   "label": "Date Range"
+  },
+  {
+   "fieldname": "from_date",
+   "fieldtype": "Date",
+   "label": "From Date"
+  },
+  {
+   "fieldname": "to_date", 
+   "fieldtype": "Date",
+   "label": "To Date"
+  },
+  {
+   "fieldname": "column_break_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "select_all",
+   "fieldtype": "Check",
+   "label": "Select All Matching Jobs"
+  },
+  {
+   "fieldname": "selected_jobs_html",
+   "fieldtype": "HTML",
+   "label": "Selected Jobs"
+  },
+  {
+   "fieldname": "operations_section",
+   "fieldtype": "Section Break", 
+   "label": "Bulk Operations"
+  },
+  {
+   "fieldname": "bulk_action",
+   "fieldtype": "Select",
+   "label": "Bulk Action",
+   "options": "\nUpdate Job Status\nPost to Indeed\nRemove from Indeed\nUpdate Job Details\nExport Selected"
+  },
+  {
+   "fieldname": "new_status",
+   "fieldtype": "Select",
+   "label": "New Job Status",
+   "options": "\nOpen\nClosed\nOn Hold",
+   "depends_on": "eval:doc.bulk_action=='Update Job Status'"
+  },
+  {
+   "fieldname": "indeed_action",
+   "fieldtype": "Select",
+   "label": "Indeed Action",
+   "options": "\nEnable Indeed Posting\nDisable Indeed Posting\nForce Refresh\nRemove from Feed",
+   "depends_on": "eval:doc.bulk_action=='Post to Indeed' || doc.bulk_action=='Remove from Indeed'"
+  },
+  {
+   "fieldname": "column_break_2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "execute_button",
+   "fieldtype": "Button",
+   "label": "Execute Bulk Operation"
+  },
+  {
+   "fieldname": "results_section",
+   "fieldtype": "Section Break",
+   "label": "Operation Results"
+  },
+  {
+   "fieldname": "operation_results",
+   "fieldtype": "Long Text",
+   "label": "Results",
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "issingle": 1,
+ "links": [],
+ "modified": "2024-01-01 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Indeed",
+ "name": "Bulk Job Manager",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "HR Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}

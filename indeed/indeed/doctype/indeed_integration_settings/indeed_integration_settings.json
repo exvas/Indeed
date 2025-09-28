@@ -1,0 +1,152 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-01-01 00:00:00",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "enable_auto_posting",
+  "integration_method",
+  "section_break_3",
+  "api_key",
+  "api_secret",
+  "access_token",
+  "refresh_token",
+  "column_break_7",
+  "webhook_secret",
+  "webhook_url",
+  "xml_feed_url",
+  "company_info_section",
+  "company",
+  "company_url",
+  "contact_email"
+ ],
+ "fields": [
+  {
+   "default": "0",
+   "fieldname": "enable_auto_posting",
+   "fieldtype": "Check",
+   "label": "Enable Auto Posting to Indeed"
+  },
+  {
+   "default": "XML_FEED",
+   "fieldname": "integration_method",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Integration Method",
+   "options": "XML_FEED\nAPI\nTHIRD_PARTY",
+   "reqd": 1
+  },
+  {
+   "fieldname": "section_break_3",
+   "fieldtype": "Section Break",
+   "label": "API Configuration"
+  },
+  {
+   "depends_on": "eval:doc.integration_method=='API'",
+   "fieldname": "api_key",
+   "fieldtype": "Data",
+   "label": "Indeed API Key"
+  },
+  {
+   "depends_on": "eval:doc.integration_method=='API'",
+   "fieldname": "api_secret",
+   "fieldtype": "Password",
+   "label": "Indeed API Secret"
+  },
+  {
+   "depends_on": "eval:doc.integration_method=='API'",
+   "fieldname": "access_token",
+   "fieldtype": "Password",
+   "label": "Access Token"
+  },
+  {
+   "depends_on": "eval:doc.integration_method=='API'",
+   "fieldname": "refresh_token",
+   "fieldtype": "Password",
+   "label": "Refresh Token"
+  },
+  {
+   "fieldname": "column_break_7",
+   "fieldtype": "Column Break"
+  },
+  {
+   "description": "Secret key for validating webhook requests",
+   "fieldname": "webhook_secret",
+   "fieldtype": "Password",
+   "label": "Webhook Secret"
+  },
+  {
+   "description": "Complete webhook URL for Indeed to send applications to",
+   "fieldname": "webhook_url",
+   "fieldtype": "Data",
+   "label": "Webhook URL",
+   "read_only": 1
+  },
+  {
+   "default": "/files/indeed_jobs.xml",
+   "depends_on": "eval:doc.integration_method=='XML_FEED'",
+   "description": "\n\n\n  <meta charset=\"UTF-8\">\n  <title>Next Steps</title>\n\n\n  <h5>\u2705 Next Steps:</h5>\n  <ol>\n    <li>Complete the Company Information section</li>\n    <li>Set a strong Webhook Secret for security</li>\n    <li>Contact Indeed Employer Services with the URLs</li>\n    <li>Request feed validation and application webhook setup</li>\n    <li>Test the integration once Indeed confirms setup</li>\n  </ol>\n\n\n",
+   "fieldname": "xml_feed_url",
+   "fieldtype": "Data",
+   "label": "XML Feed URL Path"
+  },
+  {
+   "fieldname": "company_info_section",
+   "fieldtype": "Section Break",
+   "label": "Company Information"
+  },
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "label": "Default Company",
+   "options": "Company"
+  },
+  {
+   "fieldname": "company_url",
+   "fieldtype": "Data",
+   "label": "Company Website URL"
+  },
+  {
+   "fieldname": "contact_email",
+   "fieldtype": "Data",
+   "label": "HR Contact Email"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "issingle": 1,
+ "links": [],
+ "modified": "2025-09-28 12:23:58.746628",
+ "modified_by": "Administrator",
+ "module": "Indeed",
+ "name": "Indeed Integration Settings",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "HR Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}
