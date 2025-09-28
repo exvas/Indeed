@@ -218,10 +218,6 @@ website_route_rules = [
 # ------------
 boot_session = "indeed.boot.boot_session"
 
-# Installation
-# ------------
-after_install = "indeed.indeed.install.after_install.after_install"
-
 # User Data Protection
 # --------------------
 
