@@ -6,21 +6,13 @@ import subprocess
 import os
 
 
-def before_install(app_name):
-	"""
-	Hook that runs before Indeed app installation.
-	Ensures HRMS is installed before Indeed app installation.
-	"""
-	print("🔍 Checking Indeed app dependencies...")
-	
-	# Check if HRMS is installed
-	if not is_app_installed("hrms"):
-		print("📦 HRMS not found. Installing HRMS automatically...")
-		install_hrms()
-	else:
-		print("✅ HRMS is already installed")
-
-
+def before_install():
+    """
+    Called before the Indeed app is installed.
+    Checks for dependencies and validates the environment.
+    """
+    validate_dependencies()
+    print("Installing Indeed Integration app...")
 def is_app_installed(app_name):
 	"""Check if an app is installed in the current site"""
 	try:

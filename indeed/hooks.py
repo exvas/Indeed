@@ -251,8 +251,8 @@ boot_session = "indeed.boot.boot_session"
 
 # Installation Hooks
 # ------------------
-before_app_install = "indeed.indeed.install.before_install"
-after_app_install = "indeed.indeed.install.after_install"
+before_install = "indeed.indeed.install.before_install"
+after_install = "indeed.indeed.install.after_install"
 
 fixtures = [
     {

@@ -4,49 +4,24 @@ import os
 from .before_install import validate_dependencies, is_app_installed
 
 
-def after_install(app_name):
-	"""
-	Hook that runs after Indeed app installation.
-	Sets up default configurations and validates installation.
-	"""
-	print("🚀 Configuring Indeed Integration...")
-	
-	try:
-		# First validate all dependencies
-		validate_dependencies()
-		
-		# Ensure proper app installation order
-		ensure_proper_app_order()
-		
-		# Create custom fields
-		create_custom_fields()
-		
-		# Create default Indeed Integration Settings
-		setup_default_settings()
-		
-		# Create integration settings (legacy function)
-		create_integration_settings()
-		
-		# Enable required features
-		enable_required_features()
-		
-		# Create sample data if needed
-		create_sample_data()
-		
-		frappe.db.commit()
-		
-		print("✅ Indeed app installation completed successfully!")
-		print("📋 Next steps:")
-		print("   1. Go to Indeed Integration Settings to configure your integration")
-		print("   2. Set up your company information and webhook credentials")  
-		print("   3. Contact Indeed to set up XML feed crawling")
-		print("   4. Create your first job opening with 'Post to Indeed' enabled")
-		
-	except Exception as e:
-		frappe.log_error(f"Indeed installation error: {str(e)}", "Indeed Installation")
-		print(f"⚠️  Warning: Some configuration steps failed: {str(e)}")
-		print("💡 Try running: bench --site [site] migrate")
-		raise e
+def after_install():
+    """
+    Called after the Indeed app is installed.
+    Sets up default configurations and validates installation.
+    """
+    # Import here to avoid circular imports
+    from indeed.indeed.utils import setup_default_indeed_settings
+    
+    # Validate that required apps are still available
+    validate_dependencies()
+    
+    try:
+        # Setup default settings
+        setup_default_indeed_settings()
+        print("Successfully installed Indeed Integration app")
+    except Exception as e:
+        print(f"Warning: Could not setup default settings: {e}")
+        # Don't fail the installation for this
 
 
 def setup_default_settings():

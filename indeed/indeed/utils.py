@@ -667,3 +667,36 @@ def regenerate_xml_feed():
 	except Exception as e:
 		frappe.log_error(f"XML feed regeneration failed: {str(e)}", "Indeed Integration")
 		return {"success": False, "error": str(e)}
+
+
+def setup_default_indeed_settings():
+	"""Setup default Indeed integration settings after installation"""
+	try:
+		# Check if settings document already exists
+		if frappe.db.exists("Indeed Integration Settings", "Indeed Integration Settings"):
+			settings = frappe.get_single("Indeed Integration Settings")
+		else:
+			settings = frappe.new_doc("Indeed Integration Settings")
+		
+		# Set default values if not already set
+		if not settings.integration_method:
+			settings.integration_method = "XML Feed"
+		
+		if not settings.xml_file_name:
+			settings.xml_file_name = "indeed_jobs.xml"
+		
+		if not settings.enable_auto_posting:
+			settings.enable_auto_posting = 0
+		
+		if not settings.enable_webhook:
+			settings.enable_webhook = 0
+		
+		# Save the settings
+		settings.flags.ignore_permissions = True
+		settings.save()
+		frappe.db.commit()
+		
+		frappe.msgprint("Default Indeed integration settings have been configured.", alert=True)
+		
+	except Exception as e:
+		frappe.log_error(f"Error setting up default Indeed settings: {str(e)}", "Indeed Setup")
