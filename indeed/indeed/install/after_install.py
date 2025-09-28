@@ -4,7 +4,7 @@ import os
 from .before_install import validate_dependencies, is_app_installed
 
 
-def after_install():
+def after_install(app_name):
 	"""
 	Hook that runs after Indeed app installation.
 	Sets up default configurations and validates installation.

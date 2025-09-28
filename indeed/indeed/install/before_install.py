@@ -6,7 +6,7 @@ import subprocess
 import os
 
 
-def before_install():
+def before_install(app_name):
 	"""
 	Hook that runs before Indeed app installation.
 	Ensures HRMS is installed before Indeed app installation.
