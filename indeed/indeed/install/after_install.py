@@ -4,10 +4,13 @@ import os
 from .before_install import validate_dependencies, is_app_installed
 
 
-def after_install():
+def after_install(app_name=None):
     """
     Called after the Indeed app is installed.
     Sets up default configurations and validates installation.
+    
+    Args:
+        app_name (str, optional): Name of the app being installed
     """
     # Import here to avoid circular imports
     from indeed.indeed.utils import setup_default_indeed_settings
@@ -18,7 +21,8 @@ def after_install():
     try:
         # Setup default settings
         setup_default_indeed_settings()
-        print("Successfully installed Indeed Integration app")
+        app_info = f" ({app_name})" if app_name else ""
+        print(f"Successfully installed Indeed Integration app{app_info}")
     except Exception as e:
         print(f"Warning: Could not setup default settings: {e}")
         # Don't fail the installation for this

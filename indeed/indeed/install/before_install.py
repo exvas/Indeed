@@ -6,13 +6,17 @@ import subprocess
 import os
 
 
-def before_install():
+def before_install(app_name=None):
     """
     Called before the Indeed app is installed.
     Checks for dependencies and validates the environment.
+    
+    Args:
+        app_name (str, optional): Name of the app being installed
     """
     validate_dependencies()
-    print("Installing Indeed Integration app...")
+    app_info = f" ({app_name})" if app_name else ""
+    print(f"Installing Indeed Integration app{app_info}...")
 def is_app_installed(app_name):
 	"""Check if an app is installed in the current site"""
 	try:

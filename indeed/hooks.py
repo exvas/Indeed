@@ -253,6 +253,9 @@ boot_session = "indeed.boot.boot_session"
 # ------------------
 before_install = "indeed.indeed.install.before_install"
 after_install = "indeed.indeed.install.after_install"
+# Legacy hook names for backward compatibility
+before_app_install = "indeed.indeed.install.before_install"
+after_app_install = "indeed.indeed.install.after_install"
 
 fixtures = [
     {
